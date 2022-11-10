@@ -19,7 +19,7 @@ resource "azurerm_virtual_network" "vnet_1" {
 resource "azurerm_subnet" "subnet_1" {
   name                 = "Subnet-1"
   resource_group_name  = azurerm_resource_group.rg.name
-  virtual_network_name = azurerm_virtual_network.vnet1.name
+  virtual_network_name = azurerm_virtual_network.vnet_1.name
   address_prefixes     = ["10.10.10.0/24"]
 }
 
@@ -65,7 +65,7 @@ resource "azurerm_network_interface" "vm1_nic" {
 }
 
 # Connect the security group to the network interface
-resource "azurerm_network_interface_security_group_association" "nsg_subnet_association" {
+resource "azurerm_subnet_network_security_group_association" "nsg_subnet_association" {
   subnet_id      = azurerm_subnet.subnet_1.id
   network_security_group_id = azurerm_network_security_group.vm1_nsg.id
 }
