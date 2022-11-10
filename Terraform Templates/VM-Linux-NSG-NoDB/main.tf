@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "rg" {
 # Create virtual network
 resource "azurerm_virtual_network" "vnet_1" {
   name                = "vNet-1"
-  address_space       = ["10.0.0.0/16"]
+  address_space       = ["10.10.0.0/16"]
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }
@@ -20,7 +20,7 @@ resource "azurerm_subnet" "subnet_1" {
   name                 = "Subnet-1"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet_1.name
-  address_prefixes     = ["10.10.10.0/24"]
+  address_prefixes     = ["10.10.100.0/24"]
 }
 
 # Create public IPs
