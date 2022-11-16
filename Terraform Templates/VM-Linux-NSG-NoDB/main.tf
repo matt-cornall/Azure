@@ -89,12 +89,6 @@ resource "azurerm_storage_account" "vm1_sa" {
   account_replication_type = "LRS"
 }
 
-# Create (and display) an SSH key
-resource "tls_private_key" "example_ssh" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "vm1" {
   name                  = "VM1"
@@ -118,12 +112,8 @@ resource "azurerm_linux_virtual_machine" "vm1" {
 
   computer_name                   = "vm1"
   admin_username                  = "azureuser"
-  disable_password_authentication = true
-
-  admin_ssh_key {
-    username   = "azureuser"
-    public_key = tls_private_key.example_ssh.public_key_openssh
-  }
+  admin_password                  = "Thisisatest2022!"
+  disable_password_authentication = false
 
   boot_diagnostics {
     storage_account_uri = azurerm_storage_account.vm1_sa.primary_blob_endpoint
