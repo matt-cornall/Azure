@@ -1,5 +1,5 @@
 # Azure Files - Create and Mount script
-This script automatically creates and mounts Azure Files shares in Linux VMs, leveraging Managed Identities to authorise the API calls securely and without requiring a secret.
+This script automatically creates and mounts Azure Files shares in Linux VMs, leveraging Managed Identities to authorise the API calls.
 
 # Requirements
 - cifs-utils and jq packages are installed on the Linux VM
