@@ -1,3 +1,6 @@
+# Exit script in the event of any errors or failures
+set -e
+
 # Provide a name for the new Share
 share=$1
 
