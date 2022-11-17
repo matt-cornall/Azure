@@ -6,7 +6,7 @@ This script automatically creates and mounts Azure Files shares in Linux VMs, le
     dnf/apt-get install cifs-utils - package required to mount SMB shared on Linux
     dnf/apt-get install jq - package required to parse JSON data to retrieve Azure AD token
 - Managed Identitiy enabled for the VM running this script
-    System-Assigned Managed Identitify is enabled
+    System-Assigned (or User-Assigned) Managed Identitify is enabled
     The folloiwng roles are assigned
         Storage Account Contributor
         Files SMB Elavated Contributor
