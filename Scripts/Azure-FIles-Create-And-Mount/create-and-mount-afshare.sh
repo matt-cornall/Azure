@@ -11,10 +11,10 @@ rg=rg-resource-group-name
 sak=storage-access-key-primary
 settings="{'properties': {'accessTier': 'Cool', 'shareQuota': '1024'}}"
 
-# Collecting token from Azure AD via VM Managed Identitify
+# Collecting secure token from Azure AD via VM Managed Identity
 token=$(curl -X GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -H Metadata:true | jq --raw-output .access_token)
 
-# Calling Azure Storage Service to create share
+# Call Azure Storage Service to create share
 curl -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer $token" -X PUT -d "$settings" "https://management.azure.com/subscriptions/$subid/resourceGroups/$rg/providers/Microsoft.Storage/storageAccounts/$storacc/fileServices/default/shares/$share?api-version=2022-05-01"
 
 # Pause while storage is provisioned
