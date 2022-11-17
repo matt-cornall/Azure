@@ -19,7 +19,7 @@ This script automatically creates and mounts Azure Files shares in Linux VMs, le
     - sub-id - the long alphanumeric string of your subscription
     - rg - the name of the resource group that this VM and Azure Files instance reside in
     - storacc - the name of the Storage Account to be used to create Files shares
-    - sak - the PRIMARY Access Key of the above Storage Account
+    - sak - the primary Access Key of the above Storage Account
     - settings - the settings for the Files share
         - Tier: Transaction Optimized, Hot or Cool
         - Quota: 1-5120 (GBs - standard shares have a 5TB limit)
@@ -28,4 +28,5 @@ This script automatically creates and mounts Azure Files shares in Linux VMs, le
 
 # Running the script
 Simply run the below command, replacing "example" with the desired name of the share to be created and mounted
+
     - bash ./create-and-mount-afshare.sh example
