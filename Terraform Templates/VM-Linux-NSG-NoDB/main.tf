@@ -112,7 +112,7 @@ resource "azurerm_linux_virtual_machine" "vm1" {
 
   computer_name                   = "vm1"
   admin_username                  = "azureuser"
-  admin_password                  = "Thisisatest2022!"
+  admin_password                  = "Thisisatest2022!!"
   disable_password_authentication = false
 
   boot_diagnostics {
